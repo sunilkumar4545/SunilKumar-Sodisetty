@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>View PDF</title>
+    <style>
+        /* Styling for the PDF container */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        iframe {
+            width: 80%;
+            height: 90%;
+            margin-top: 130px;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <iframe id="pdfFrame" src="" type="application/pdf"></iframe>
+
+
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Define the PDF URLs
+        const pdfFiles = {
+            '2018 Gate Material': 'https://drive.google.com/file/d/16ogTLyAzXiEDYPEHKLb6ABP5Qgi7v0_4/view?usp=drive_link',
+            '2022 Gate Material': 'https://drive.google.com/file/d/1rmnbUDsnlnmo64evXtTxDNl9OXWLLMXV/view?usp=drive_link',
+            'BASIC ELECTRONICS ENGINEERING': 'https://drive.google.com/file/d/189ME1pUVWImJJu5Tv9QRDp4nDhDlN2rn/view?usp=sharing',
+            '2019 Gate Material': 'https://drive.google.com/file/d/1dhCXsJ8dC_RE4GCvwN7Gz5j-Cpc005pb/view?usp=sharing',
+            '2020 Gate Material': 'https://drive.google.com/file/d/1NJOydAipBsAIPBsVCDX8bSC3KIZalDax/view?usp=sharing',
+            'v1': 'https://drive.google.com/file/d/1yj1fDghxKrN1ZeFZkkxv89f1Q1Jdcvc0/view?usp=sharing',
+            'v2': 'https://drive.google.com/file/d/12Kqmxkk0_yXvozfZF37dsWo6OCH5kare/view?usp=sharing',
+            'gate': 'https://drive.google.com/file/d/1W4730Txt4ZroWQa1kTSvTmpvMqwB90n6/view?usp=sharing',
+            //gate material end
+            //sql start
+            'sql1': 'https://drive.google.com/file/d/19LYgX_EnWo4R9pEqEGkl0hELH0vty57b/view?usp=sharing',
+            'sql2': 'https://drive.google.com/file/d/1Azc66o_mueV5wGQlgx2ufKZz_p3fclwB/view?usp=sharing',
+            'sql3': 'https://drive.google.com/file/d/1Hrtq3m2Uk9O-D2isGCoO8G9s0drV_tUG/view?usp=sharing',
+            'sql4': 'https://drive.google.com/file/d/1Jg8O4c-j6kmea-YylByy6DqilKkyHTEc/view?usp=sharing',
+            'sql5': 'https://drive.google.com/file/d/1KYpH0nOJl0yXl1kDojnsFNIqB1BMemB2/view?usp=sharing',
+            'sql6': 'https://drive.google.com/file/d/1rrlalziSCeHFGqkkN21-Z8A8DCW9Tbew/view?usp=sharing',
+            'sql7': 'https://drive.google.com/file/d/1xnBbyX0il2FA-bYtC9DFXWHNhqRejaC8/view?usp=sharing',
+            'sql8': 'https://drive.google.com/file/d/1xvOvJ0UAR7QTEBdkGaCWtosaQHxVayKx/view?usp=sharing',
+            //sql end
+            'JAVASCRIPT': 'https://drive.google.com/file/d/10bTBiPG7NEj3hepVyQHRl7wWmZFLcIV2/view?usp=sharing',  // JAVASCRIPT.pdf
+            'HTML-interview': 'https://drive.google.com/file/d/17wzgwMKWouqm97xAUvQLMXsvU1ejer_g/view?usp=sharing',  // HTML-interview-questions-and-answers.pdf
+            'HTML Questions': 'https://drive.google.com/file/d/1IpP8GSAJJT2P3jb6pmRj7iyc3bHSzJ4g/view?usp=sharing',  // HTML Questions Final.pdf
+            'HTML Note': 'https://drive.google.com/file/d/1MJMpvrSKGEiG-kIGDQbtQ5fAZqbCi-hn/view?usp=sharing',  // HTML Note.pdf
+            'Full-stack-js-resource list': 'https://drive.google.com/file/d/1P_BLWFRGP8Cx9zyTKSQuoFor-ZViaPBY/view?usp=sharing',  // Full-stack-js-resource list.pdf
+            'Frontend Interview Preparation': 'https://drive.google.com/file/d/1_eDxD2gy1-ZPM9bwpA4AQyJ-ZDygG6w7/view?usp=sharing',  // Frontend Interview Preparation.pdf
+            'Front-End-Resources': 'https://drive.google.com/file/d/1pBhNxlYjXFObR6TFi9XXYua3AX57JSiW/view?usp=sharing',  // Front-End-Resources.pdf
+            'CSS-interview-questions-and-answers': 'https://drive.google.com/file/d/1rKK8y6IlhkpFjgj5A9diFh_KpZ6HPkw9/view?usp=sharing',  // CSS-interview-questions-and-answers.pdf
+            'CSS Interview Questions': 'https://drive.google.com/file/d/1zN2g-itXNHxyVqykNP_UDGvcIQTdb0eY/view?usp=sharing',  // CSS Interview Questions.pdf,
+            //prep
+            'pseudocodes': 'https://drive.google.com/file/d/1f0LFhCPPBonQXkE1sH-o8Lpau24OPa5r/view?usp=sharing',  // pseudocodes.pdf
+            'Placement Cheatsheet - Curious Freaks-1': 'https://drive.google.com/file/d/1LYjk10S11MeE3exY6aSOZZHHRAjnpXiO/view?usp=sharing',  // Placement Cheatsheet - Curious Freaks-1.pdf
+            'HR': 'https://drive.google.com/file/d/1teKOYzoIsy6l4GtBfhemrp9g1rH3fk-I/view?usp=sharing',  // hr.pdf
+            'HR Questions for Fresher': 'https://drive.google.com/file/d/1TjjgVeG6iX_5Gavpghk026ksQAFhY-nS/view?usp=sharing',  // HR Questions for Fresher.pdf
+            '3 to 5 LPA': 'https://drive.google.com/file/d/1ez0MiPsxcj_7emzRusls9tZqfNfD4Wa_/view?usp=sharing',  // 3 to 5 LPA.pdf
+            'Technical-Interview-Toolkit': 'https://drive.google.com/file/d/14UT49i1tpbwynsh6lDGZEsgOK0v8DUzy/view?usp=sharing',  // Technical-Interview-Toolkit.pdf
+            'SQL Practice Questions': 'https://drive.google.com/file/d/16GRlts_WMKjrXVPQerT6v7rCczYz4ewg/view?usp=sharing',  // SQL Practice Questions.pdf
+            'SQL Interview Questions': 'https://drive.google.com/file/d/18ueRpyGgFK5-GVIqqs0Fbq7IxL_S2ynL/view?usp=sharing',  // SQL Interview Questions.pdf
+            'Python Interview Questions': 'https://drive.google.com/file/d/1BX3uPKBiFvK1sxI7EqP6zIfjg6VG8xsu/view?usp=sharing',  // Python Interview Questions.pdf
+            'OS Interview Questions': 'https://drive.google.com/file/d/1E-J6A6XHJIPfvpgJ0_8xJo4iBaF-ympL/view?usp=sharing',  // OS interview questions.pdf
+            'Interview Questions of Testing for Freshers': 'https://drive.google.com/file/d/1EH22ZEtd9Swh9s9MBqUrvroOVJA3XCvC/view?usp=sharing',  // Interview Questions of Testing for Freshers.pdf
+            'HR Questions': 'https://drive.google.com/file/d/1OjLL15IH3mXYArTy0a9w59Ceq0IufQ16/view?usp=sharing',  // HR questions.pdf
+            'How to CRACK Technical Interviews': 'https://drive.google.com/file/d/1WlZWAkPknJq18K6L-wQBhUArgz4E_eqp/view?usp=sharing',  // How-to-CRACK-Technical-Interviews.pdf
+            'DBMS Interview Questions': 'https://drive.google.com/file/d/1Xl78Qx4S7vR-sfplLf9s8t1VboV4qXtW/view?usp=sharing',  // DBMS Interview questions.pdf
+            'Common Job Interview Questions': 'https://drive.google.com/file/d/1YBXUoxs7KIXLSQ2VHDCLgrSgEQnoIq0v/view?usp=sharing',  // Common_Job_Interview_Questions_1.pdf
+            'C Language Placement Materials': 'https://drive.google.com/file/d/1YmJhmSVDe-naGqqMwLVHwzNYFuzu6p8f/view?usp=sharing',  // C Language Placement Materials_.pdf
+            '100 Python Interview Questions': 'https://drive.google.com/file/d/1ZGpVAg8RL8kQUIL2T2C1rkB8P8vCCK5Y/view?usp=sharing',  // 100 python interview questions.pdf
+            //technical
+            'Technical Assessment Resource PDF': 'https://drive.google.com/file/d/148k3yRBATM2btTXYFR0mpDg9Hw7rUa-8/view?usp=sharing',  // Technical Assessment Resource PDF Techie CodeBuddy
+            'Network Security Interview Questions': 'https://drive.google.com/file/d/1RfF2-mi4mBczh0NMyPPKhwisaRiZLtZM/view?usp=sharing',  // Network Security Interview Questions
+            'Microsoft Excel': 'https://drive.google.com/file/d/1S0wCHqjcg8_EmCbTl8KNUp7KFhLIFmfs/view?usp=sharing',  // Microsoft Excel - @CodersCircle
+            'Excel Interview Questions': 'https://drive.google.com/file/d/1cH_r__d9rR2O2giYpV8_5c8kl8Ovhd-I/view?usp=sharing',  // Excel Interview Questions
+            'Computer Networks (CN) Interview Questions': 'https://drive.google.com/file/d/1de0lBoNPmtG0tDYliARD8RbmiHH1xV--/view?usp=sharing',  // Computer Networks (CN) Interview Questions
+            'Computer Networks Notes': 'https://drive.google.com/file/d/1lBIaqED3CC3ssvUd4mDu0sKXxAV8zmp8/view?usp=sharing',  // Computer Networks Notes
+            'Cloud Computing Interview Questions': 'https://drive.google.com/file/d/1zvU5lS436nOtbYu_FDAYnt7uORvggfDH/view?usp=sharing',  // Cloud Computing Interview Questions
+        };
+
+        // Get the 'pdf' parameter from the URL
+        const pdfKey = getQueryParameter('pdf');
+
+        // Get the iframe element
+        const pdfFrame = document.getElementById('pdfFrame');
+
+        // Set the source of the iframe based on the clicked link
+        if (pdfKey && pdfFiles[pdfKey]) {
+            // Google Drive PDF link format
+            pdfFrame.src = `https://drive.google.com/file/d/${pdfFiles[pdfKey].split('/d/')[1].split('/')[0]}/preview`;
+        } else {
+            pdfFrame.src = ''; // Display nothing if no valid PDF key is found
+        }
+    </script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

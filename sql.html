@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming</title>
+    <link rel="stylesheet" href="ebook.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"rel="stylesheet"/>
+    <style>
+        :root {
+            --bg-color: black;
+            --text-color: #ffffff;
+            --table-header-bg: #2c2c2c;
+            --table-row-bg: #1a1a1a;
+            --table-row-alt-bg: #2c2c2c;
+            --table-row-hover: #3a3a3a;
+            --input-border: #444;
+            --button-bg: #388E3C;
+            --button-hover: #2E7D32;
+        }
+    
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+    
+        h1 {
+            text-align: center;
+        }
+    
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid var(--input-border);
+            border-radius: 4px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+    
+        th, td {
+            border: 1px solid var(--input-border);
+            padding: 12px;
+            text-align: left;
+        }
+    
+        th {
+            background-color: var(--table-header-bg);
+        }
+    
+        tr:nth-child(even) {
+            background-color: var(--table-row-alt-bg);
+        }
+    
+        tr:hover {
+            background-color: var(--table-row-hover);
+        }
+    
+        .view-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    
+        .view-link:hover {
+            background-color: var(--button-hover);
+        }
+    
+        @media screen and (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                margin-bottom: 10px;
+            }
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+                font-weight: bold;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <div class="nav__bar">
+          <div class="nav__header">
+            <div class="nav__logo">
+              <a href="#">SUNIL</a>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+              <i class="ri-menu-line"></i>
+            </div>
+          </div>
+          <ul class="nav__links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    <h1>Programming Course Materials</h1>
+    <br>
+    <input type="text" id="searchInput" placeholder="Search for subjects...">
+    <table id="materialsTable">
+        <thead>
+            <tr>
+                <th>Name of Subject</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Name of Subject">SQL MOst asked Q/A</td>
+                <td data-label="View"><a href="view.html?pdf=sql1" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Mass coders SQL</td>
+                <td data-label="View"><a href="view.html?pdf=sql2" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">SQL 80 Questions</td>
+                <td data-label="View"><a href="view.html?pdf=sql3" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">SQL HandBook</td>
+                <td data-label="View"><a href="view.html?pdf=sql4" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">SQL</td>
+                <td data-label="View"><a href="view.html?pdf=sql5" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Leetcode SQL</td>
+                <td data-label="View"><a href="view.html?pdf=sql6" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Mass coders</td>
+                <td data-label="View"><a href="view.html?pdf=sql7" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Top 50 SQL Q/A</td>
+                <td data-label="View"><a href="view.html?pdf=sql8" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">JAVASCRIPT</td>
+                <td data-label="View"><a href="view.html?pdf=JAVASCRIPT" class="view-link">View PDF</a></td> 
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">HTML-interview</td>
+                <td data-label="View"><a href="view.html?pdf=HTML-interview" class="view-link">View PDF</a></td> 
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">HTML Questions</td>
+                <td data-label="View"><a href="view.html?pdf=HTML Questions" class="view-link">View PDF</a></td> 
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">HTML Note</td>
+                <td data-label="View"><a href="view.html?pdf=HTML Note" class="view-link">View PDF</a></td> 
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Full-stack-js-resource list</td>
+                <td data-label="View"><a href="view.html?pdf=Full-stack-js-resource list" class="view-link">View PDF</a></td> 
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Frontend Interview Preparation</td>
+                <td data-label="View"><a href="view.html?pdf=Frontend Interview Preparation" class="view-link">View PDF</a></td> 
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Front-End-Resources</td>
+                <td data-label="View"><a href="view.html?pdf=Front-End-Resources" class="view-link">View PDF</a></td> 
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">CSS-interview-questions-and-answers</td>
+                <td data-label="View"><a href="view.html?pdf=CSS-interview-questions-and-answers" class="view-link">View PDF</a></td> 
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">CSS Interview Questions</td>
+                <td data-label="View"><a href="view.html?pdf=CSS Interview Questions" class="view-link">View PDF</a></td> 
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const table = document.getElementById('materialsTable');
+        const rows = table.getElementsByTagName('tr');
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+        function searchTable() {
+            const filter = searchInput.value.toLowerCase();
+            for (let i = 1; i < rows.length; i++) {
+                const subjectName = rows[i].getElementsByTagName('td')[0];
+                if (subjectName) {
+                    const textValue = subjectName.textContent || subjectName.innerText;
+                    if (textValue.toLowerCase().indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('class', 'dark-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('class', '');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        searchInput.addEventListener('keyup', searchTable);
+
+         
+    </script>
+        <script src="script.js"></script>
+
+</body>
+</html>

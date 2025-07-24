@@ -1,0 +1,289 @@
+ .card {
+     transition: all 0.2s ease;
+ }
+
+ .card:hover {
+     background-color: #2a2a2a;
+ }
+
+ .card:hover .icon {
+     transform: scale(1.1);
+ }
+
+ .icon {
+     transition: transform 0.2s ease;
+ }
+
+ .github-icon {
+     filter: brightness(0) invert(1);
+ }
+
+ .express-icon {
+     filter: brightness(0) invert(1);
+ }
+
+ .project-card {
+     transition: all 0.3s ease;
+ }
+
+ .project-card:hover {
+     background-color: #2a2a2a;
+ }
+
+ .arrow-button {
+     transition: transform 0.2s ease;
+ }
+
+ .project-card:hover .arrow-button {
+     transform: scale(1.1);
+ }
+
+ .nav-item {
+     transition: all 0.3s ease;
+     color: #9ca3af;
+     /* gray-400 for all items */
+ }
+
+ .nav-item:hover {
+     color: #ffffff;
+ }
+
+ .nav-item.active {
+     background-color: #ffffff;
+     color: #161616;
+ }
+
+ .nav-item.active:hover {
+     background-color: rgba(255, 255, 255, 0.9);
+     color: #161616;
+ }
+
+ /* Hero Section Styles */
+ .hero-button {
+     transition: all 0.3s ease;
+ }
+
+ .hero-button:hover {
+     transform: translateY(-2px);
+ }
+
+ .hero-button.primary {
+     background-color: #3b82f6;
+     color: white;
+ }
+
+ .hero-button.primary:hover {
+     background-color: #2563eb;
+ }
+
+ .hero-button.secondary {
+     background-color: #374151;
+     color: white;
+ }
+
+ .hero-button.secondary:hover {
+     background-color: #4b5563;
+ }
+
+ .hero-button.secondary:focus {
+     outline: none;
+     box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.3);
+ }
+
+ .hero-button:link,
+ .hero-button:visited {
+     text-decoration: none;
+     color: inherit;
+ }
+
+ .profile-image {
+     transition: transform 0.3s ease;
+ }
+
+ .profile-image:hover {
+     transform: scale(1.05);
+ }
+
+ /* Timeline Styles */
+ .timeline-item {
+     transition: all 0.3s ease;
+ }
+
+ .timeline-item:hover {
+     transform: scale(1.02);
+ }
+
+ .timeline-dot {
+     transition: all 0.3s ease;
+ }
+
+ /* PDF Viewer Styles */
+ .pdf-viewer-container {
+     position: relative;
+     background: #f5f5f5;
+     border-radius: 8px;
+     overflow: hidden;
+ }
+
+ .pdf-viewer-container iframe {
+     width: 100%;
+     height: 320px;
+     border: none;
+     display: block;
+ }
+
+ .pdf-fallback {
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     color: white;
+     padding: 2rem;
+     text-align: center;
+     border-radius: 8px;
+     display: none;
+ }
+
+ .pdf-fallback.show {
+     display: block;
+ }
+
+ .pdf-fallback a {
+     color: #fff;
+     text-decoration: underline;
+ }
+
+ /* PDF Image Slider Styles */
+ #pdf-image-slider {
+     min-height: 600px;
+     align-items: center;
+ }
+
+ #pdf-image-slider img {
+     transition: transform 0.3s ease;
+     image-rendering: crisp-edges;
+     image-rendering: -webkit-optimize-contrast;
+ }
+
+ #pdf-image-slider img:hover {
+     transform: scale(1.02);
+ }
+
+ /* Ensure container has proper aspect ratio */
+ .research-paper-container {
+     min-height: 630px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .timeline-item:hover .timeline-dot {
+     transform: scale(1.25);
+     box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+ }
+
+ .timeline-card {
+     transition: all 0.3s ease;
+ }
+
+ .timeline-card:hover {
+     background-color: #2a2a2a;
+     box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+ }
+
+ .section-icon {
+     background-color: rgba(59, 130, 246, 0.1);
+ }
+
+ /* Contact Form Styles */
+ .contact-form {
+     transition: all 0.3s ease;
+ }
+
+ .contact-form:hover {
+     box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+ }
+
+ .form-input {
+     background-color: #1a1a1a;
+     border: 1px solid #2a2a2a;
+     color: #ffffff;
+     transition: all 0.3s ease;
+ }
+
+ .form-input:focus {
+     outline: none;
+     border-color: #3b82f6;
+     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+ }
+
+ .form-input::placeholder {
+     color: #6b7280;
+ }
+
+ .social-icon {
+     transition: all 0.3s ease;
+     color: #3b82f6;
+ }
+
+ .social-icon:hover {
+     background-color: #3b82f6;
+     color: #ffffff;
+     transform: translateY(-2px);
+ }
+
+ .submit-btn {
+     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+     transition: all 0.3s ease;
+ }
+
+ .submit-btn:hover {
+     box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+     transform: translateY(-2px);
+ }
+
+ /* Footer Styles */
+ .footer {
+     background-color: #0f0f0f;
+     border-top: 1px solid #2a2a2a;
+ }
+
+ .footer-link {
+     transition: all 0.3s ease;
+     color: #9ca3af;
+ }
+
+ .footer-link:hover {
+     color: #3b82f6;
+ }
+
+ /* Research Section Styles */
+ .research-card {
+     transition: all 0.3s ease;
+ }
+
+ .research-card:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+ }
+
+ .project-image-card {
+     transition: all 0.3s ease;
+ }
+
+ .project-image-card:hover {
+     box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+ }
+
+ .project-image-card:hover .aspect-\[4\/3\] {
+     transform: scale(1.05);
+ }
+
+ /* Research Section Styles */
+ .research-card {
+     background: #1a1a1a;
+     border: 1px solid #2a2a2a;
+     transition: all 0.3s ease;
+ }
+
+ .research-card:hover {
+     background: #2a2a2a;
+     transform: translateY(-2px);
+ }

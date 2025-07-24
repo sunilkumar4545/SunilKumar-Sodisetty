@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Infinite Scroll - Mobile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #161616;
+            flex-direction: column;
+            padding: 20px 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+        }
+
+        .title {
+            text-align: center;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .scroll {
+            position: relative;
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            margin: 15px 0;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #fff 10%, #fff 90%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #fff 10%, #fff 90%, transparent);
+        }
+
+        .scroll div {
+            white-space: nowrap;
+            animation: scroll var(--time) linear infinite;
+            animation-delay: calc(var(--time) * -1);
+        }
+
+        .scroll div:nth-child(2) {
+            animation: scroll2 var(--time) linear infinite;
+            animation-delay: calc(var(--time) / -2);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes scroll2 {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-200%);
+            }
+        }
+
+        /* Text Skills Scrollers */
+        .scroll.text div span {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 8px;
+            letter-spacing: 0.1em;
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid #3a3a3a;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll.text div span:hover {
+            background: linear-gradient(145deg, #3b82f6, #2563eb);
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Icon Skills Scrollers */
+        .scroll.icons {
+            height: 60px;
+            align-items: center;
+        }
+
+        .scroll.icons div {
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            margin: 0 8px;
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border: 1px solid #3a3a3a;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-icon:hover {
+            background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+            border-color: #3b82f6;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .skill-icon img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(1.1);
+        }
+
+        /* Image Box Styling */
+        .scroll.imgBox {
+            height: 60px;
+            align-items: center;
+        }
+
+        .scroll.imgBox div {
+            display: flex;
+            align-items: center;
+        }
+
+        .scroll.imgBox img {
+            width: 45px;
+            height: 45px;
+            margin: 0 8px;
+            padding: 8px;
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border: 1px solid #3a3a3a;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            object-fit: contain;
+        }
+
+        .scroll.imgBox img:hover {
+            background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+            border-color: #3b82f6;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .container {
+                max-width: 350px;
+            }
+            
+            .title {
+                font-size: 20px;
+            }
+            
+            .subtitle {
+                font-size: 13px;
+                padding: 0 10px;
+            }
+            
+            .scroll.text div span {
+                padding: 6px 10px;
+                font-size: 11px;
+                margin: 0 6px;
+            }
+            
+            .skill-icon {
+                width: 40px;
+                height: 40px;
+                margin: 0 6px;
+            }
+            
+            .skill-icon img {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .scroll.imgBox img {
+                width: 40px;
+                height: 40px;
+                margin: 0 6px;
+                padding: 6px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                max-width: 320px;
+            }
+            
+            .scroll.text div span {
+                padding: 5px 8px;
+                font-size: 10px;
+                margin: 0 4px;
+            }
+            
+            .skill-icon {
+                width: 35px;
+                height: 35px;
+                margin: 0 5px;
+            }
+            
+            .skill-icon img {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .scroll.imgBox img {
+                width: 35px;
+                height: 35px;
+                margin: 0 5px;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">My Skills</h1>
+        <p class="subtitle">Discover the powerful tools and technologies I use to create exceptional digital experiences</p>
+    <div class="scroll text" style="--time:20s">
+        <div>
+            <span>Figma</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Bootstrap</span>
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>Node.JS</span>
+            <span>Express.JS</span>
+            <span>MongoDB</span>
+            <span>MySQL</span>
+            <span>Python</span>
+            <span>Java</span>
+        </div>
+        <div>
+            <span>Figma</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Bootstrap</span>
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>Node.JS</span>
+            <span>Express.JS</span>
+            <span>MongoDB</span>
+            <span>MySQL</span>
+            <span>Python</span>
+            <span>Java</span>
+        </div>
+    </div>
+    
+    <div class="scroll text" style="--time:30s">
+        <div>
+            <span>Design Tool</span>
+            <span>Markup Language</span>
+            <span>Styling</span>
+            <span>Programming Language</span>
+            <span>Frontend Framework</span>
+            <span>CSS Framework</span>
+            <span>Version Control</span>
+            <span>Code Repository</span>
+            <span>Backend Runtime</span>
+            <span>Backend Framework</span>
+            <span>NoSQL Database</span>
+            <span>SQL Database</span>
+            <span>Programming Language</span>
+            <span>Programming Language</span>
+        </div>
+        <div>
+            <span>Design Tool</span>
+            <span>Markup Language</span>
+            <span>Styling</span>
+            <span>Programming Language</span>
+            <span>Frontend Framework</span>
+            <span>CSS Framework</span>
+            <span>Version Control</span>
+            <span>Code Repository</span>
+            <span>Backend Runtime</span>
+            <span>Backend Framework</span>
+            <span>NoSQL Database</span>
+            <span>SQL Database</span>
+            <span>Programming Language</span>
+            <span>Programming Language</span>
+        </div>
+    </div>
+
+    <!-- SVG Icons Scrollers -->
+    <div class="scroll imgBox" style="--time:25s">
+        <div>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+        </div>
+        <div>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+        </div>
+    </div>
+
+  
+
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical</title>
+    <link rel="stylesheet" href="ebook.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"rel="stylesheet"/>
+    <style>
+        :root {
+            --bg-color: black;
+            --text-color: #ffffff;
+            --table-header-bg: #2c2c2c;
+            --table-row-bg: #1a1a1a;
+            --table-row-alt-bg: #2c2c2c;
+            --table-row-hover: #3a3a3a;
+            --input-border: #444;
+            --button-bg: #388E3C;
+            --button-hover: #2E7D32;
+        }
+    
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+    
+        h1 {
+            text-align: center;
+        }
+    
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid var(--input-border);
+            border-radius: 4px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+    
+        th, td {
+            border: 1px solid var(--input-border);
+            padding: 12px;
+            text-align: left;
+        }
+    
+        th {
+            background-color: var(--table-header-bg);
+        }
+    
+        tr:nth-child(even) {
+            background-color: var(--table-row-alt-bg);
+        }
+    
+        tr:hover {
+            background-color: var(--table-row-hover);
+        }
+    
+        .view-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    
+        .view-link:hover {
+            background-color: var(--button-hover);
+        }
+    
+        @media screen and (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                margin-bottom: 10px;
+            }
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+                font-weight: bold;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <div class="nav__bar">
+          <div class="nav__header">
+            <div class="nav__logo">
+              <a href="#">SUNIL</a>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+              <i class="ri-menu-line"></i>
+            </div>
+          </div>
+          <ul class="nav__links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    <h1>Technical Course Materials</h1>
+    <br>
+    <input type="text" id="searchInput" placeholder="Search for subjects...">
+    <table id="materialsTable">
+        <thead>
+            <tr>
+                <th>Name of Subject</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Name of Subject">Technical Assessment Resource PDF</td>
+                <td data-label="View"><a href="view.html?pdf=Technical Assessment Resource PDF" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Network Security Interview Questions</td>
+                <td data-label="View"><a href="view.html?pdf=Network Security Interview Questions" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Microsoft Excel</td>
+                <td data-label="View"><a href="view.html?pdf=Microsoft Excel" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Excel Interview Questions</td>
+                <td data-label="View"><a href="view.html?pdf=Excel Interview Questions" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Computer Networks (CN) Interview Questions</td>
+                <td data-label="View"><a href="view.html?pdf=Computer Networks (CN) Interview Questions" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Computer Networks Notes</td>
+                <td data-label="View"><a href="view.html?pdf=Computer Networks Notes" class="view-link">View PDF</a></td>
+            </tr>
+            <tr>
+                <td data-label="Name of Subject">Cloud Computing Interview Questions</td>
+                <td data-label="View"><a href="view.html?pdf=Cloud Computing Interview Questions" class="view-link">View PDF</a></td>
+            </tr>            
+            
+        </tbody>
+    </table>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const table = document.getElementById('materialsTable');
+        const rows = table.getElementsByTagName('tr');
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+        function searchTable() {
+            const filter = searchInput.value.toLowerCase();
+            for (let i = 1; i < rows.length; i++) {
+                const subjectName = rows[i].getElementsByTagName('td')[0];
+                if (subjectName) {
+                    const textValue = subjectName.textContent || subjectName.innerText;
+                    if (textValue.toLowerCase().indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('class', 'dark-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('class', '');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        searchInput.addEventListener('keyup', searchTable);
+
+         
+    </script>
+        <script src="script.js"></script>
+
+</body>
+</html>
