@@ -1,6 +1,6 @@
 
 // SEO and Performance Optimizations
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Update page title dynamically based on section
     function updatePageTitle(section) {
         const titles = {
@@ -12,28 +12,28 @@ document.addEventListener('DOMContentLoaded', function() {
             'blog': 'Technical Blog & Programming Tutorials - Sunil Kumar',
             'contact': 'Contact Full Stack Developer - Sunil Kumar'
         };
-        
+
         if (titles[section]) {
             document.title = titles[section];
-            
+
             // Update meta description dynamically
             const metaDesc = document.querySelector('meta[name="description"]');
             const descriptions = {
-                'home': 'Sunil Kumar - Experienced Full Stack Developer and Electronics & Communication Engineer specializing in Node.js, Express.js, MongoDB, React.js, and antenna research.',
-                'tools': 'Explore the development tools and technologies used by Sunil Kumar including MERN stack, Python, Java, and modern web development frameworks.',
+                'home': 'Sunil Kumar - Experienced Full Stack Developer and Electronics & Communication Engineer specializing in Spring, Spring Boot, Angular, and antenna research.',
+                'tools': 'Explore the development tools and technologies used by Sunil Kumar including Java Full Stack, Python, Java, and modern web development frameworks.',
                 'experience': 'Professional experience and educational background of Sunil Kumar in Electronics & Communication Engineering and Full Stack Development.',
                 'portfolio': 'Featured web development projects by Sunil Kumar including React applications, Node.js backends, and responsive websites.',
                 'research': 'Electronics research projects including MIMO antenna design, ultra-wide-band technology, and wireless communication by Sunil Kumar.',
                 'blog': 'Technical blog featuring web development tutorials, programming insights, and technology articles by Sunil Kumar.',
-                'contact': 'Contact Sunil Kumar for web development projects, MERN stack development, and Electronics engineering collaboration.'
+                'contact': 'Contact Sunil Kumar for web development projects, Spring Boot & Angular development, and Electronics engineering collaboration.'
             };
-            
+
             if (metaDesc && descriptions[section]) {
                 metaDesc.content = descriptions[section];
             }
         }
     }
-    
+
     // Track page sections for analytics
     function trackSection(sectionName) {
         // Add Google Analytics tracking if implemented
@@ -44,23 +44,23 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    
+
     // Add structured data for projects
     function addProjectStructuredData() {
         const projects = document.querySelectorAll('.project-card');
         projects.forEach((project, index) => {
             const title = project.querySelector('h3')?.textContent;
             const description = project.querySelector('p')?.textContent;
-            
+
             if (title) {
                 project.setAttribute('itemscope', '');
                 project.setAttribute('itemtype', 'https://schema.org/CreativeWork');
-                
+
                 const titleElement = project.querySelector('h3');
                 if (titleElement) {
                     titleElement.setAttribute('itemprop', 'name');
                 }
-                
+
                 const descElement = project.querySelector('p');
                 if (descElement) {
                     descElement.setAttribute('itemprop', 'description');
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Initialize SEO optimizations
     addProjectStructuredData();
 });
@@ -224,9 +224,9 @@ const tools = [
     },
     {
         id: 5,
-        name: "React",
+        name: "Angular",
         description: "Frontend Framework",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg",
         bgColor: "bg-[#1a1a1a]",
         borderColor: "border-[#2a2a2a]",
     },
@@ -270,17 +270,17 @@ const tools = [
     // Backend Technologies
     {
         id: 10,
-        name: "Node.JS",
-        description: "Backend Runtime",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        name: "Spring",
+        description: "Java Framework",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg",
         bgColor: "bg-[#1a1a1a]",
         borderColor: "border-[#2a2a2a]",
     },
     {
         id: 11,
-        name: "Express.JS",
+        name: "Spring Boot",
         description: "Backend Framework",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg",
         bgColor: "bg-[#1a1a1a]",
         borderColor: "border-[#2a2a2a]",
     },
@@ -288,20 +288,13 @@ const tools = [
     // Databases
     {
         id: 12,
-        name: "MongoDB",
-        description: "NoSQL Database",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-        bgColor: "bg-[#1a1a1a]",
-        borderColor: "border-[#2a2a2a]",
-    },
-    {
-        id: 13,
         name: "MySQL",
         description: "SQL Database",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
         bgColor: "bg-[#1a1a1a]",
         borderColor: "border-[#2a2a2a]",
     },
+
 
     // Programming Languages
     {
@@ -348,16 +341,16 @@ const projects = [
     },
     {
         id: 3,
-        title: "Node.js Authentication System",
-        technologies: ["Node.js", "Express", "MongoDB", "JWT"],
+        title: "MediaConnect - OTT Platform",
+        technologies: ["Spring Boot", "Angular", "MySQL", "JWT"],
         image:
-            "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop",
         gradient: "bg-gradient-to-br from-red-400 via-pink-400 to-orange-400",
         description:
-            "Complete authentication system with secure backend architecture. Implemented user registration, login with password hashing using Bcrypt and JWT tokens.",
-        link: "https://github.com/sunilkumar4545/Node-auth-MVC"
+            "Seamless OTT platform featuring secure User Authentication with JWT, Subscription Plans, and Media Streaming. Built with Spring Boot REST APIs and Angular frontend.",
+        link: "https://github.com/sunilkumar4545/MediaConnect"
     },
-    {
+    /*{
         id: 4,
         title: "Full Stack Music App",
         technologies: ["API", "MVC", "Development"],
@@ -367,7 +360,7 @@ const projects = [
             "bg-gradient-to-br from-purple-400 via-blue-400 to-indigo-400",
         description:
             "Full stack music application with MVC architecture and API integration for seamless music streaming experience.",
-    },
+    },*/
 ];
 
 function createProjectCard(project) {
@@ -425,7 +418,7 @@ function renderProjects() {
     container.innerHTML = projects
         .map((project) => createProjectCard(project))
         .join("");
-    
+
     // Add click event listeners to project cards
     const projectCards = container.querySelectorAll('.project-card');
     projectCards.forEach(card => {
@@ -452,8 +445,7 @@ function createToolCard(tool) {
     let iconClass = "icon";
     if (tool.name === "GitHub") {
         iconClass = "icon github-icon";
-    } else if (tool.name === "Express.JS") {
-        iconClass = "icon express-icon";
+
     }
 
     return `
@@ -551,26 +543,26 @@ function setupMobileNavigation() {
 
     // Handle mobile nav item clicks
     mobileNavItems.forEach(item => {
-        item.addEventListener('click', function(e) {
+        item.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             // Remove active class from all mobile nav items
             mobileNavItems.forEach(nav => nav.classList.remove('active'));
-            
+
             // Add active class to clicked item
             this.classList.add('active');
-            
+
             // Get target section
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            
+
             // Update page title and meta description for SEO
             updatePageTitle(targetId);
             trackSection(targetId);
-            
+
             // Close mobile menu
             closeMobileMenu();
-            
+
             // Scroll to section after menu closes
             setTimeout(() => {
                 if (targetSection) {
@@ -578,7 +570,7 @@ function setupMobileNavigation() {
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    
+
                     // Update desktop nav active state too
                     const desktopNavItems = document.querySelectorAll('.nav-item');
                     desktopNavItems.forEach(nav => nav.classList.remove('active'));
@@ -599,12 +591,12 @@ function setupMobileNavigation() {
     });
 
     // Update mobile nav active state on scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const sections = ['home', 'tools', 'experience', 'portfolio', 'research', 'blog', 'contact'];
         const scrollPosition = window.scrollY + 120;
-        
+
         let currentSection = 'home';
-        
+
         sections.forEach(sectionId => {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -614,7 +606,7 @@ function setupMobileNavigation() {
                 }
             }
         });
-        
+
         // Update active mobile navigation item
         mobileNavItems.forEach(nav => nav.classList.remove('active'));
         const activeMobileNav = document.querySelector(`.mobile-nav-item[href="#${currentSection}"]`);
