@@ -326,7 +326,7 @@ const projects = [
             "bg-gradient-to-br from-yellow-400 via-orange-400 to-green-400",
         description:
             "Modern and responsive website to showcase photography work using HTML5, CSS3, and JavaScript. Deployed on Netlify with GitHub version control.",
-        link: "https://sunilkumar4545.github.io/Photographer-Portfolio.github.io/index.html"
+        link: "https://sunilkumar4545.github.io/Niharika-Visions/"
     },
     {
         id: 2,
